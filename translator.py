@@ -70,6 +70,8 @@ def lees_en_voor(bestandsmap):
 
     print(f"\n🎙️ Voorlezen van: {gekozen_bestand.name}")
     engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[0].id)  # [0] = standaardstem, [1] = alternatieve stem als beschikbaar
     engine.say(tekst)
     engine.runAndWait()
 
